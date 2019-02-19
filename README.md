@@ -19,10 +19,10 @@ This is a step-by-step guide to get the selectColumnsByNames() macro working.
 7. Choose **insert** -> **module**
 8. Copy paste the contents of the *variable selection macro.bas* file into the module window.
 9. Now you need to make two small edits in the macro itself: First, find the line that says *dataSheet = "worksheet_with_the_data"* and replace *worksheet_with_the_data* with the name of the worksheet that contains your data. Again be careful that the name matches exactly, and make sure the quotation marks are still there.
-11. Then, find the line underneath saying: *newDataSheet = "selected_variables_sheet"*. This defines the name of the worksheet where the subset of selected variables will be stored. If you wish for this worksheet to have a different name (for example in the unlikely event you already have a sheet named like this), then you can rename it here.
+10. Then, find the line underneath saying: *newDataSheet = "selected_variables_sheet"*. This defines the name of the worksheet where the subset of selected variables will be stored. If you wish for this worksheet to have a different name (for example in the unlikely event you already have a sheet named like this), then you can rename it here.
 11. Now you're ready to run the module. To do so, press **F5**.
 
-If everything has gone well, a new sheet will have appeared in your Excel file (as named under step 11), containing the variables you asked for.
+If everything has gone well, a new sheet will have appeared in your Excel file (as named under step 10), containing the variables you asked for.
 
 Note that the macro will execute regardless of whether variables you specified are correct or not. It won't warn you if it can't find a variable. If a variable is not present it is most likely not there in the original data, either not present at all, or there is a typo in the list of variables that you specified.
 
