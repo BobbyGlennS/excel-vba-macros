@@ -24,6 +24,6 @@ This is a step-by-step guide to get the selectColumnsByNames() macro working.
 
 If everything has gone well, a new sheet will have appeared in your Excel file (as named under step 10), containing the variables you asked for.
 
-Note that the macro will execute regardless of whether variables you specified are correct or not. It won't warn you if it can't find a variable. If a variable is not present it is most likely not there in the original data, either not present at all, or there is a typo in the list of variables that you specified.
+Note that the macro will execute regardless of whether variables you specified are correct or not. If a variable you specified does not exist a column with the variable name will still be added to the new sheet, however the variable name will have "DOES_NOT_EXIST" appended to it. There will be no data in this column. If a variable is not present it is most likely not there in the original data, either not present at all, or there is a typo in the list of variables that you specified.
 
 Top tip: Don't ever run the macro (or any macro) on your original data, always first save a copy. The actions cannot be undone, and as such you may lose data forever if you're not careful.
