@@ -11,7 +11,7 @@ Sub selectColumnsByNames()
 
 'USER SETTINGS ##########################################################
     'Define the name of the sheet where the data is stored
-    dataSheet = "worksheet_with_the_data"
+    dataSheet = "data_DG"
     newDataSheet = "selected_variables_sheet"
 
 'DATA OPERATIONS #######################################################
@@ -30,12 +30,21 @@ Sub selectColumnsByNames()
     End If
 
     'copy columns that we need to keep to new sheet.
-     For i = 1 To totalRows - 1
-          varToKeep = columnsToKeep(i)
-          On Error Resume Next
-          currentColumn = Application.Match(varToKeep, Sheets(dataSheet).Rows(1), 0)
-          Worksheets(dataSheet).Columns(currentColumn).Copy Worksheets(newDataSheet).Columns(i)
-   Next i
+    For i = 1 To totalRows - 1
+         currentColumn = [0]
+         varToKeep = columnsToKeep(i)
+         On Error Resume Next
+         currentColumn = Application.Match(varToKeep, Sheets(dataSheet).Rows(1), 0)
+         If Not currentColumn = 0 Then
+            Worksheets(dataSheet).Columns(currentColumn).Copy Worksheets(newDataSheet).Columns(i)
+         Else
+            Worksheets(newDataSheet).Cells(1, i) = varToKeep + "DOES_NOT_EXIST"
+         End If
+    Next i
+
+    For i = 1 To totalRows - 1
+        Worksheets("newDataSheet").Cells(i, 1).Value = columnsToKeep(i)
+    Next i
 
 End Sub
 
